@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katsuko · Software, stories &amp; experiments</title>
+<meta name="description" content="Katsuko is an independent creative house in New York building Scorch, HardBeet, and Aurora: focused products with honest promises, alongside stories and experiments. By Can Iseri.">
+<link rel="canonical" href="https://katsuko.studio/">
+<meta property="og:title" content="Katsuko · Software, stories & experiments">
+<meta property="og:description" content="An independent creative house building Scorch, HardBeet, and Aurora. By Can Iseri.">
+<meta property="og:url" content="https://katsuko.studio/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://katsuko.studio/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F7F3EC">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/fraunces-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face {
+    font-family: "Fraunces";
+    src: url("assets/fonts/fraunces-latin-standard-normal.woff2") format("woff2-variations");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Fraunces";
+    src: url("assets/fonts/fraunces-latin-standard-italic.woff2") format("woff2-variations");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  :root {
+    --paper: #F7F3EC;
+    --ink: #211C15;
+    --ink-soft: #6F6558;
+    --accent: #C34A2B;
+    --line: rgba(33, 28, 21, 0.16);
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection { background: var(--accent); color: var(--paper); }
+
+  /* paper grain */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* entrance reveals */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--d, 0s);
+  }
+
+  .reveal.is-in { opacity: 1; transform: none; }
+
+  a { color: inherit; }
+
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Header ---------- */
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-top: 40px;
+  }
+
+  .wordmark {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .byline-link {
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding-bottom: 2px;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: color 0.2s ease, background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .byline-link:hover { color: var(--accent); background-size: 100% 1px; }
+
+  /* ---------- Hero ---------- */
+
+  .hero { padding: 120px 0 96px; }
+
+  .stamp { display: block; margin-bottom: 36px; }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(40px, 7.5vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    max-width: 14ch;
+  }
+
+  .hero p {
+    margin-top: 28px;
+    max-width: 52ch;
+    font-size: 17px;
+    color: var(--ink-soft);
+  }
+
+  .hero p strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Sections ---------- */
+
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
+
+  .section-label {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 48px;
+  }
+
+  .section-label .num { color: var(--accent); }
+
+  /* ---------- Apps ---------- */
+
+  .app {
+    display: block;
+    text-decoration: none;
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .app:first-of-type { border-top: none; padding-top: 0; }
+  .app:last-of-type { padding-bottom: 0; }
+
+  .app-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .app-name {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.2;
+    transition: color 0.2s ease;
+  }
+
+  .mark {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 3px;
+    margin-right: 14px;
+    transform: translateY(-1px);
+  }
+
+  .mark--scorch { background: #E05A2B; }
+  .mark--hardbeet { background: #A02D4E; }
+  .mark--aurora { background: #2E6E73; }
+
+  .app:hover .app-name { color: var(--accent); }
+
+  .app-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .status {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .arrow {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--ink-soft);
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .app:hover .arrow { color: var(--accent); transform: translateX(3px); }
+
+  .app:hover .status { color: var(--accent); border-color: var(--accent); }
+
+  .app-desc {
+    margin-top: 10px;
+    max-width: 58ch;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  /* ---------- Story ---------- */
+
+  .story-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .story-kicker {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+
+  .story-desc {
+    margin-top: 10px;
+    max-width: 58ch;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  blockquote {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.5;
+    margin-top: 28px;
+    padding-left: 20px;
+    border-left: 2px solid var(--accent);
+    max-width: 44ch;
+  }
+
+  .story-note {
+    margin-top: 24px;
+    font-size: 14px;
+  }
+
+  .story-note a {
+    color: var(--ink);
+    text-decoration: none;
+    padding-bottom: 3px;
+    background-image: linear-gradient(var(--accent), var(--accent)), linear-gradient(var(--line), var(--line));
+    background-size: 0% 1px, 100% 1px;
+    background-position: 0 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: color 0.2s ease, background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .story-note a:hover { color: var(--accent); background-size: 100% 1px, 100% 1px; }
+
+  /* ---------- Contact ---------- */
+
+  .contact-line {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(26px, 4.5vw, 36px);
+    line-height: 1.25;
+    max-width: 24ch;
+  }
+
+  .contact-links {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+    font-size: 15px;
+  }
+
+  .contact-links a {
+    text-decoration: none;
+    padding-bottom: 3px;
+    background-image: linear-gradient(var(--accent), var(--accent)), linear-gradient(var(--line), var(--line));
+    background-size: 0% 1px, 100% 1px;
+    background-position: 0 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: color 0.2s ease, background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .contact-links a:hover { color: var(--accent); background-size: 100% 1px, 100% 1px; }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 0 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  footer a {
+    color: inherit;
+    text-decoration: none;
+    padding-bottom: 1px;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: color 0.2s ease, background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  footer a:hover { color: var(--accent); background-size: 100% 1px; }
+
+  @media (max-width: 560px) {
+    .hero { padding: 88px 0 72px; }
+    .app-head { flex-direction: column; gap: 10px; }
+    .app-meta { gap: 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <a class="wordmark" href="https://katsuko.studio/">Katsuko</a>
+    <a class="byline-link" href="https://caniseri.com" rel="author">by Can Iseri ↗</a>
+  </header>
+
+  <main>
+
+    <section class="hero" style="border-top: none;">
+      <svg class="stamp" width="26" height="26" viewBox="0 0 64 64" aria-hidden="true" data-reveal><rect width="64" height="64" rx="14" fill="var(--accent)"/><text x="32" y="34" font-family="Fraunces, Georgia, serif" font-size="38" font-weight="600" fill="var(--paper)" text-anchor="middle" dominant-baseline="central">K</text></svg>
+      <h1 data-reveal style="--d:.08s">Software, stories &amp; experiments.</h1>
+      <p data-reveal style="--d:.16s"><strong>Katsuko</strong> is an independent creative house in New York. It builds focused products with honest promises: fair competition, care without surveillance, and clearer decisions. It also tells stories about intelligence and repair.</p>
+    </section>
+
+    <section id="apps" aria-labelledby="apps-label">
+      <div class="section-label" id="apps-label" data-reveal><span class="num">01</span> Apps</div>
+
+      <a class="app" href="https://scorchapp.xyz/" data-reveal>
+        <div class="app-head">
+          <span class="app-name"><span class="mark mark--scorch" aria-hidden="true"></span>Scorch</span>
+          <span class="app-meta"><span class="status">iOS pilot</span><span class="arrow" aria-hidden="true">→</span></span>
+        </div>
+        <p class="app-desc">Fair-start racing for runners. Recent pace staggers the start, so everyone gets a real race on the same route, with live gaps, finish confidence, and reviewed results.</p>
+      </a>
+
+      <a class="app" href="https://github.com/caniseri/hardbeet" data-reveal style="--d:.07s">
+        <div class="app-head">
+          <span class="app-name"><span class="mark mark--hardbeet" aria-hidden="true"></span>HardBeet</span>
+          <span class="app-meta"><span class="status">MVP hardening</span><span class="arrow" aria-hidden="true">→</span></span>
+        </div>
+        <p class="app-desc">A consent-first daily check-in for independent loved ones. One deliberate tap creates the signal and approved people see it. No live location, no private phone activity.</p>
+      </a>
+
+      <a class="app" href="https://github.com/caniseri/aurora" data-reveal style="--d:.14s">
+        <div class="app-head">
+          <span class="app-name"><span class="mark mark--aurora" aria-hidden="true"></span>Aurora</span>
+          <span class="app-meta"><span class="status">Working POC</span><span class="arrow" aria-hidden="true">→</span></span>
+        </div>
+        <p class="app-desc">Cruise decisions, explained. A Cruise Passport turns route, ship, cabin, party, and price preferences into fit, alternatives, and target-price watches.</p>
+      </a>
+    </section>
+
+    <section id="stories" aria-labelledby="stories-label">
+      <div class="section-label" id="stories-label" data-reveal><span class="num">02</span> Stories</div>
+
+      <p class="story-kicker" data-reveal>Near-future science fiction · Short story</p>
+      <h2 class="story-title" data-reveal style="--d:.06s">The Receiver</h2>
+      <p class="story-desc" data-reveal style="--d:.12s">An evaluator discovers a frontier model translating concepts no human culture has ever named, and must decide what version of humanity to show whatever may be listening. A story about first contact through machines.</p>
+      <blockquote data-reveal style="--d:.18s">“Performance degrades authenticity. Repair improves compatibility.”</blockquote>
+      <p class="story-note" data-reveal style="--d:.24s"><a href="https://a.co/d/044Ilpdj">Read on Kindle ↗</a></p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-label">
+      <div class="section-label" id="contact-label" data-reveal><span class="num">03</span> Contact</div>
+
+      <p class="contact-line" data-reveal>Something here resonate? Send a note.</p>
+      <div class="contact-links" data-reveal style="--d:.08s">
+        <a href="mailto:hello@katsuko.studio">hello@katsuko.studio</a>
+        <a href="https://caniseri.com">caniseri.com</a>
+        <a href="https://github.com/caniseri">GitHub</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Katsuko, Inc. · New York</span>
+    <span>Independent studio of <a href="https://caniseri.com">Can Iseri</a></span>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var els = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
+  els.forEach(function (el) { el.classList.add("reveal"); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-in");
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -5% 0px" });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
