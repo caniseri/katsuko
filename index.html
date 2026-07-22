@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Katsuko · Technology that leaves room for people</title>
-<meta name="description" content="Katsuko is a small New York studio building products for fair starts, quiet care, and clearer choices—and stories about intelligence and repair.">
+<meta name="description" content="Katsuko is a small New York studio building Scorch, HardBeet, and Aurora—three products for fair starts, quiet care, and clearer choices.">
 <link rel="canonical" href="https://katsuko.studio/">
 <meta property="og:title" content="Katsuko · The Human Measure">
-<meta property="og:description" content="Technology that leaves room for people. A small New York studio by Can Iseri.">
+<meta property="og:description" content="Technology that leaves room for people. Three products from a small New York studio.">
 <meta property="og:url" content="https://katsuko.studio/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://katsuko.studio/assets/og-card-human-measure.png">
@@ -682,84 +682,10 @@
   .project:hover .route-needle,
   .project:focus-visible .route-needle { transform: rotate(-18deg); }
 
-  .stories-grid,
   .note-grid {
     display: grid;
     grid-template-columns: minmax(190px, 3fr) minmax(0, 8fr);
     gap: clamp(48px, 8vw, 112px);
-  }
-
-  .story-intro p {
-    max-width: 22ch;
-    margin-top: 28px;
-    color: var(--ink-soft);
-    font-size: 14px;
-  }
-
-  .story-main h2 { max-width: 690px; }
-
-  .story-main h2 em {
-    font-family: var(--serif);
-    font-weight: 430;
-  }
-
-  .story-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 180px;
-    gap: 48px;
-    margin-top: 70px;
-    padding-top: 34px;
-    border-top: 1px solid var(--line-strong);
-  }
-
-  .story-kind {
-    color: var(--ink-soft);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-  }
-
-  .story-title {
-    margin-top: 18px;
-    font-family: var(--serif);
-    font-size: clamp(35px, 4vw, 50px);
-    font-weight: 500;
-    line-height: 1;
-  }
-
-  .story-description {
-    max-width: 58ch;
-    margin-top: 22px;
-    color: var(--ink-soft);
-    font-size: 15px;
-  }
-
-  .story-link {
-    display: inline-flex;
-    gap: 9px;
-    align-items: center;
-    margin-top: 30px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--line-strong);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: border-color 0.2s ease, color 0.2s ease;
-  }
-
-  .story-link:hover { color: var(--aurora); border-color: var(--aurora); }
-
-  blockquote {
-    align-self: end;
-    padding-left: 20px;
-    border-left: 2px solid var(--aurora);
-    font-family: var(--serif);
-    font-size: 19px;
-    font-style: italic;
-    line-height: 1.5;
   }
 
   .note-grid { align-items: start; }
@@ -884,7 +810,6 @@
 
     .hero,
     .section-heading,
-    .stories-grid,
     .note-grid {
       grid-template-columns: 1fr;
       gap: 44px;
@@ -919,9 +844,6 @@
       height: 122px;
       margin-top: 8px;
     }
-
-    .story-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-    .story-intro p { margin-top: 0; max-width: 34ch; }
   }
 
   @media (max-width: 620px) {
@@ -955,10 +877,6 @@
     .project-index { padding-top: 0; }
     .project-frame { grid-template-columns: 1fr; gap: 20px; margin-top: 32px; }
     .project-diagram { grid-column: 1; height: 112px; }
-
-    .story-intro { grid-template-columns: 1fr; gap: 20px; }
-    .story-card { grid-template-columns: 1fr; gap: 44px; margin-top: 50px; }
-    blockquote { max-width: 26ch; }
 
     .note-copy { font-size: 20px; }
     .signature { display: grid; }
@@ -1010,14 +928,14 @@
         <li><i aria-hidden="true"></i>Fairness</li>
         <li><i aria-hidden="true"></i>Consent</li>
         <li><i aria-hidden="true"></i>Clarity</li>
-        <li><i aria-hidden="true"></i>Repair</li>
+        <li><i aria-hidden="true"></i>Agency</li>
       </ul>
     </aside>
 
     <div class="hero-main">
       <p class="hero-meta">Independent studio · New York · 2026</p>
       <h1 id="hero-title">Technology that leaves room <span class="human-word">for people.</span></h1>
-      <p class="hero-lede"><strong>Katsuko</strong> is a small New York studio building products for fair starts, quiet care, and clearer choices—and stories about intelligence and repair.</p>
+      <p class="hero-lede"><strong>Katsuko</strong> is a small New York studio building three products for fair starts, quiet care, and clearer choices.</p>
       <div class="promise-line" aria-label="Katsuko product themes">
         <span>Fair starts</span>
         <span>Quiet care</span>
@@ -1107,47 +1025,24 @@
     </div>
   </section>
 
-  <section class="section" id="stories" aria-labelledby="stories-title">
-    <div class="stories-grid">
-      <aside class="story-intro">
-        <p class="section-kicker"><span>02</span> / Stories · Fiction</p>
-        <p>The products begin with practical constraints. The stories begin where certainty runs out: intelligence, contact, authenticity, and repair.</p>
-      </aside>
-
-      <div class="story-main">
-        <h2 id="stories-title">Questions technology <em>cannot settle.</em></h2>
-        <article class="story-card">
-          <div>
-            <p class="story-kind">Near-future science fiction · Short story</p>
-            <h3 class="story-title">The Receiver</h3>
-            <p class="story-description">An evaluator discovers a frontier model translating concepts no human culture has ever named, and must decide what version of humanity to show whatever may be listening. A story about first contact through machines.</p>
-            <a class="story-link" href="https://a.co/d/044Ilpdj">Read on Kindle <span aria-hidden="true">↗</span></a>
-          </div>
-          <blockquote>“Performance degrades authenticity. Repair improves compatibility.”</blockquote>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section class="section" id="note" aria-labelledby="note-title">
     <div class="note-grid">
       <div>
-        <p class="section-kicker"><span>03</span> / Studio note</p>
+        <p class="section-kicker"><span>02</span> / Studio note</p>
       </div>
       <div>
-        <h2 class="sr-only" id="note-title">A studio note from Can, New York</h2>
-        <p class="note-copy">I started Katsuko because these projects looked unrelated only from a distance. A running race, a daily check-in, a cruise decision, a story about machine intelligence—each asks the same question: how can technology help without crowding out <em>agency, dignity, or imagination?</em> I build from New York, keeping the studio small enough to stay close to the details and honest about what each project is ready to promise. Katsuko is the thread between them: useful systems, considered constraints, and room for people to remain more than inputs.</p>
-        <p class="signature"><span>Can Iseri</span><span>New York</span><span>Summer 2026</span></p>
+        <h2 class="sr-only" id="note-title">A note from Katsuko, New York</h2>
+        <p class="note-copy">We started Katsuko because these products looked unrelated only from a distance. A running race, a daily check-in, and a cruise decision each ask the same question: how can technology help without crowding out <em>agency, dignity, or imagination?</em> We build from New York, keeping the studio small enough to stay close to the details and honest about what each product is ready to promise. Katsuko is the thread between them: useful systems, considered constraints, and room for people to remain more than inputs.</p>
+        <p class="signature"><span>Katsuko Studio</span><span>New York</span><span>Summer 2026</span></p>
       </div>
     </div>
   </section>
 
   <section class="contact" id="contact" aria-labelledby="contact-title">
-    <p class="contact-label">04 / Contact</p>
+    <p class="contact-label">03 / Contact</p>
     <h2 id="contact-title">Something here <em>resonate?</em> Send a note.</h2>
     <div class="contact-links">
       <a href="mailto:hello@katsuko.studio">hello@katsuko.studio</a>
-      <a href="https://caniseri.com" rel="author">caniseri.com</a>
       <a href="https://github.com/caniseri">GitHub</a>
     </div>
   </section>
@@ -1155,7 +1050,7 @@
 
 <footer class="site-footer shell">
   <span class="footer-brand"><span class="signal-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Katsuko, Inc. · New York</span></span>
-  <span>Independent studio of <a href="https://caniseri.com">Can Iseri</a> · © 2026</span>
+  <span>Scorch · HardBeet · Aurora · © 2026</span>
 </footer>
 
 </body>
