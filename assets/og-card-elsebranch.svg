@@ -16,9 +16,9 @@
     <text x="52" y="577" font-size="23" font-weight="700" letter-spacing="8">NEW YORK</text>
   </g>
   <g fill="none" stroke-linecap="round" stroke-width="3">
-    <path d="M722 315 C790 315 844 240 914 164 C932 145 947 141 973 141 L1200 141" stroke="#FF4F1F"/>
-    <path d="M722 315 L1200 315" stroke="#E9163D"/>
-    <path d="M722 315 C790 315 844 390 914 466 C932 485 947 489 973 489 L1200 489" stroke="#39D98F"/>
+    <path d="M722 315 C790 315 844 240 914 164 C932 145 947 141 973 141 L1200 141" stroke="#EE5626"/>
+    <path d="M722 315 L1200 315" stroke="#BD264D"/>
+    <path d="M722 315 C790 315 844 390 914 466 C932 485 947 489 973 489 L1200 489" stroke="#329C81"/>
   </g>
   <circle cx="722" cy="315" r="8" fill="#111820"/>
 </svg>
