@@ -1,5 +1,5 @@
-# katsuko.studio
+# elsebranch.com
 
-Source for the Katsuko studio site: a static single page served by GitHub Pages at [katsuko.studio](https://katsuko.studio).
+Source for the ElseBranch studio site: a static single page served by GitHub Pages at [elsebranch.com](https://elsebranch.com).
 
-Katsuko, Inc. is the umbrella studio for Scorch, HardBeet, and Aurora.
+ElseBranch is the New York umbrella studio for Scorch, HardBeet, and Aurora.

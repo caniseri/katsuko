@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">ElseBranch — Technology that leaves room for people.</title>
+  <desc id="description">ElseBranch social card with three colored paths representing Scorch, HardBeet, and Aurora.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7F9F6"/>
+      <stop offset="1" stop-color="#E9EEEA"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#paper)"/>
+  <g fill="#111820" font-family="Inter, Helvetica Neue, Helvetica, Arial, sans-serif">
+    <text x="52" y="77" font-size="31" font-weight="720" letter-spacing="-0.5">ElseBranch</text>
+    <text x="52" y="257" font-size="76" font-weight="560" letter-spacing="-3">Technology</text>
+    <text x="52" y="351" font-size="76" font-weight="560" letter-spacing="-3">that leaves</text>
+    <text x="52" y="445" font-size="76" font-weight="560" letter-spacing="-3">room for people.</text>
+    <text x="52" y="577" font-size="23" font-weight="700" letter-spacing="8">NEW YORK</text>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-width="3">
+    <path d="M722 315 C790 315 844 240 914 164 C932 145 947 141 973 141 L1200 141" stroke="#E35A2B"/>
+    <path d="M722 315 L1200 315" stroke="#9F3157"/>
+    <path d="M722 315 C790 315 844 390 914 466 C932 485 947 489 973 489 L1200 489" stroke="#2D7478"/>
+  </g>
+  <circle cx="722" cy="315" r="8" fill="#111820"/>
+</svg>
